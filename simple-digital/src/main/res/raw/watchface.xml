@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Simple Digital: large time, date line, one customizable complication.
+  Canvas is 450x450; the system scales it to the actual screen
+  (Galaxy Watch 7 is 432x432 / 480x480 depending on size).
+-->
+<WatchFace width="450" height="450">
+    <Metadata key="CLOCK_TYPE" value="DIGITAL" />
+    <Metadata key="PREVIEW_TIME" value="10:08:32" />
+
+    <UserConfigurations>
+        <ColorConfiguration id="accent" displayName="accent_color" defaultValue="0">
+            <ColorOption id="0" displayName="color_blue" colors="#FF4FC3F7" />
+            <ColorOption id="1" displayName="color_orange" colors="#FFFFB74D" />
+            <ColorOption id="2" displayName="color_green" colors="#FF81C784" />
+        </ColorConfiguration>
+    </UserConfigurations>
+
+    <Scene backgroundColor="#FF000000">
+
+        <!-- Date, e.g. "THU 5" -->
+        <PartText x="75" y="110" width="300" height="40">
+            <Text align="CENTER">
+                <Font family="SYNC_TO_DEVICE" size="30" color="[CONFIGURATION.accent.0]">
+                    <Template>%s %s
+                        <Parameter expression="[DAY_OF_WEEK_S]" />
+                        <Parameter expression="[DAY]" />
+                    </Template>
+                </Font>
+            </Text>
+        </PartText>
+
+        <!-- Time; 12/24h follows the phone/watch setting -->
+        <DigitalClock x="25" y="160" width="400" height="120">
+            <TimeText format="hh:mm" hourFormat="SYNC_TO_DEVICE" align="CENTER"
+                x="0" y="0" width="400" height="120">
+                <Font family="SYNC_TO_DEVICE" size="110" weight="BOLD" color="#FFFFFFFF" />
+            </TimeText>
+        </DigitalClock>
+
+        <!-- Complication (defaults to step count), hidden in always-on mode -->
+        <Group name="complication_group" x="0" y="0" width="450" height="450">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
+            <ComplicationSlot slotId="0" x="165" y="300" width="120" height="80"
+                supportedTypes="SHORT_TEXT" isCustomizable="TRUE">
+                <DefaultProviderPolicy defaultSystemProvider="STEP_COUNT"
+                    defaultSystemProviderType="SHORT_TEXT" />
+                <BoundingBox x="0" y="0" width="120" height="80" />
+                <Complication type="SHORT_TEXT">
+                    <PartText x="0" y="0" width="120" height="40">
+                        <Text align="CENTER">
+                            <Font family="SYNC_TO_DEVICE" size="30" color="#FFFFFFFF">
+                                <Template>%s
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                    <PartText x="0" y="40" width="120" height="30">
+                        <Text align="CENTER">
+                            <Font family="SYNC_TO_DEVICE" size="20" color="#FFAAAAAA">
+                                <Template>%s
+                                    <Parameter expression="[COMPLICATION.TITLE]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Complication>
+            </ComplicationSlot>
+        </Group>
+    </Scene>
+</WatchFace>

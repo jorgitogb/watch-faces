@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="watch_face_name">Terminal Themes</string>
+    <string name="flavor">Theme</string>
+    <string name="theme_rose_pine">Rosé Pine</string>
+    <string name="theme_rose_pine_moon">Rosé Pine Moon</string>
+    <string name="theme_rose_pine_dawn">Rosé Pine Dawn</string>
+    <string name="theme_night_owl">Night Owl</string>
+    <string name="flavor_mocha">Mocha</string>
+    <string name="flavor_macchiato">Macchiato</string>
+    <string name="flavor_frappe">Frappé</string>
+    <string name="flavor_latte">Latte</string>
+    <string name="stars">Stars</string>
+    <string name="style">Style</string>
+    <string name="style_classic">Classic</string>
+    <string name="style_terminal">Terminal</string>
+</resources>
