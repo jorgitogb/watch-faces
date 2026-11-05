@@ -313,18 +313,35 @@
                     </Text>
                 </PartText>
 
-                <!-- ❯ █  with blinking cursor (on even seconds) -->
+                <!-- ❯ git push_  typed one char per second over a 14 s cycle:
+                     t = [SECOND] % 14; t 0..8 types n = t chars, t 9..13 holds
+                     the full command with a blinking cursor. Stays at 1 Hz. -->
                 <PartText x="146" y="340" width="30" height="34">
                     <Text align="START">
                         <Font family="jetbrains_mono_bold" size="24"
                             color="[CONFIGURATION.flavor.6]">❯</Font>
                     </Text>
                 </PartText>
-                <PartText x="175" y="340" width="20" height="34">
-                    <Transform target="alpha" value="(1 - [SECOND] % 2) * 255" />
+                <PartText x="175" y="340" width="200" height="34">
                     <Text align="START">
                         <Font family="jetbrains_mono_regular" size="24"
-                            color="[CONFIGURATION.flavor.2]">█</Font>
+                            color="[CONFIGURATION.flavor.3]">
+                            <Template>%s
+                                <Parameter expression="subText(&quot;git push&quot;, 0, ([SECOND] % 14 &gt; 8 ? 8 : [SECOND] % 14))" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <!-- Underscore cursor follows the text: JetBrains Mono advance is
+                     0.6 em = 14.4 px at size 24. Solid while typing, blinks after. -->
+                <PartText x="175" y="340" width="20" height="34">
+                    <Transform target="x"
+                        value="175 + 14.4 * ([SECOND] % 14 &gt; 8 ? 8 : [SECOND] % 14)" />
+                    <Transform target="alpha"
+                        value="[SECOND] % 14 &gt; 8 ? (1 - [SECOND] % 2) * 255 : 255" />
+                    <Text align="START">
+                        <Font family="jetbrains_mono_regular" size="24"
+                            color="[CONFIGURATION.flavor.2]">_</Font>
                     </Text>
                 </PartText>
             </ListOption>
