@@ -24,12 +24,14 @@ To add a face, copy `simple-digital/`, change `namespace`/`applicationId`, and a
 brew install --cask android-studio      # SDK + adb + bundled JDK (run it once, "Standard" setup)
 brew install gradle                     # only needed once, to create the wrapper
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export JAVA_HOME="$(/usr/libexec/java_home -v 21)"   # JDK 17 or 21; Android Studio's bundled jbr is Java 25, too new for Gradle 8.11 / AGP 8.7
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 gradle wrapper --gradle-version 8.11.1
 chmod +x install.sh
 ./install.sh terminal-themes 192.168.x.x:PORT
 ```
+
+If you have no JDK 21, install one (e.g. `brew install openjdk@21`, or a JBR 21 via Android Studio → Settings → Build Tools → Gradle → Gradle JDK → Download JDK). `/usr/libexec/java_home -V` lists the installed ones.
 
 The scripts in `scripts/` (star and preview generators) are Windows-only (PowerShell + System.Drawing). The generated PNGs are already committed, so you only need them to regenerate art.
 
