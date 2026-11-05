@@ -2,6 +2,10 @@
 
 Personal Wear OS watch faces in Watch Face Format (WFF), aimed at a Galaxy Watch 7 (Wear OS 5+, API 34).
 
+| Terminal Themes | Simple Digital |
+| :---: | :---: |
+| <img src="terminal-themes/src/main/res/drawable-nodpi/preview.png" width="225" alt="Terminal Themes watch face preview"> | <img src="simple-digital/src/main/res/drawable-nodpi/preview.png" width="225" alt="Simple Digital watch face preview"> |
+
 ## Layout
 
 ```text
