@@ -336,7 +336,7 @@
                      0.6 em = 14.4 px at size 24. Solid while typing, blinks after. -->
                 <PartText x="175" y="340" width="20" height="34">
                     <Transform target="x"
-                        value="175 + 14.4 * ([SECOND] % 14 &gt; 8 ? 8 : [SECOND] % 14)" />
+                        value="173 + 14.4 * ([SECOND] % 14 &gt; 8 ? 8 : [SECOND] % 14)" />
                     <Transform target="alpha"
                         value="[SECOND] % 14 &gt; 8 ? (1 - [SECOND] % 2) * 255 : 255" />
                     <Text align="START">
