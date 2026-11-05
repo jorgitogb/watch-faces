@@ -97,7 +97,7 @@
             <!-- Weather -->
             <Condition>
                 <Expressions>
-                    <Expression name="hasWeather"><![CDATA[[WEATHER.IS_AVAILABLE] && ![WEATHER.IS_ERROR]]]></Expression>
+                    <Expression name="hasWeather"><![CDATA[[WEATHER.IS_AVAILABLE]]]></Expression>
                 </Expressions>
                 <Compare expression="hasWeather">
                     <PartText x="75" y="78" width="300" height="46">
@@ -216,7 +216,7 @@
                 <!-- Weather:  14° Cloudy ↑16 ↓8 -->
                 <Condition>
                     <Expressions>
-                        <Expression name="hasWeather"><![CDATA[[WEATHER.IS_AVAILABLE] && ![WEATHER.IS_ERROR]]]></Expression>
+                        <Expression name="hasWeather"><![CDATA[[WEATHER.IS_AVAILABLE]]]></Expression>
                     </Expressions>
                     <Compare expression="hasWeather">
                         <PartText x="60" y="90" width="110" height="32">
